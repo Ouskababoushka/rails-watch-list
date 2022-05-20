@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<div class="banner mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1440404653325-ab127d49abc1?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340);">
+  <div class="container">
+    <h1>Check out <strong>the best movies</strong> and <strong>create your lists !</strong>!</h1>
+    <p>Clément is not so good at chess, but well, that's life !</p>
+    <%= link_to 'Create a List', new_list_path, class: "btn btn-gradient"%>
+  </div>
+</div>
+
+<h1>Lists</h1>
+
+   <% @lists.each do |list| %>
+    <div class="cards">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://loremflickr.com/320/240/<%= list.name %>)">
+        <%= link_to "#{list.name}", list_path(list), class: "btn btn-ghost" %>
+      </div>
+    </div>
+        <%# <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
