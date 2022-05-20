@@ -1,8 +1,24 @@
-<h1><%= @list.name %></h1>
-<%= link_to "add a movie", new_list_bookmark_path(@list), class: "btn btn-ghost" %>
 
-<% @list.bookmarks.each do |bookmark| %>
-  <%=  bookmark.movie.title%>
-  <%=  bookmark.comment%>
-  <%= link_to 'Destroy', bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
+<div class="banner mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://api.unsplash.com/search/photos?query='<%=@list.name%>');">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+    <p>Clément is not so good at chess, but well, that's life !</p>
+    <%= link_to "add a movie", new_list_bookmark_path(@list), class: "btn btn-gradient" %>
+  </div>
+</div>
+
+
+<div class="row ml-3 mr-3 d-flex justify-content-center">
+  <% @list.bookmarks.each do |bookmark| %>
+  <div class="col-sm-3">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="<%= bookmark.movie.poster_url%>" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%=  bookmark.movie.title%></h5>
+          <p class="card-text"><%=  bookmark.comment%></p>
+          <%= link_to 'Remove from list', bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

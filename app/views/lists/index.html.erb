@@ -10,11 +10,11 @@
 
 <h1>Lists</h1>
 
+    <div class="cards ml-3 mr-3">
    <% @lists.each do |list| %>
-    <div class="cards">
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://loremflickr.com/320/240/<%= list.name %>)">
-        <%= link_to "#{list.name}", list_path(list), class: "btn btn-ghost" %>
+        <%= link_to "#{list.name}", list_path(list), class: "btn btn-gradient" %>
       </div>
+    <% end %>
     </div>
         <%# <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
